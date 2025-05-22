@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlantSlot : MonoBehaviour
 {
-    public CoordinatesData coords = new(1,4);
+    public CoordinatesData coords;
 
     private void Start()
     {
-        
+        Debug.Log(coords.getCoords);
     }
 }
 
@@ -24,4 +24,6 @@ public readonly struct CoordinatesData
     // Skrócona wersja public int x {get { return _posX; }}
     public readonly int X => _posX;
     public readonly int Y => _posY;
+
+    public readonly Vector2 getCoords => new(_posX, _posY);
 }
