@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class PlantSlot : MonoBehaviour
+public class GridSlot : MonoBehaviour
 {
-    public CoordinatesData coords;
+    public CoordinatesData Coords;
 
+    public GridSlot(CoordinatesData coords)
+    {
+        Coords  = coords;
+    }
     private void Start()
     {
-        Debug.Log(coords.getCoords);
+        Debug.Log(Coords.GetCoords);
     }
 }
 
@@ -21,9 +25,9 @@ public readonly struct CoordinatesData
         this._posY = posY;
     }
 
-    // Skrócona wersja public int x {get { return _posX; }}
+    // Skrï¿½cona wersja public int x {get { return _posX; }}
     public readonly int X => _posX;
     public readonly int Y => _posY;
 
-    public readonly Vector2 getCoords => new(_posX, _posY);
+    public Vector2 GetCoords => new(_posX, _posY);
 }

@@ -1,25 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Map
+namespace Managers
 {
-    public class GridManager : MonoBehaviour
+    public class GridManager : Singleton<GridManager>
     {
         [SerializeField] private GridSize gridSize;
         [SerializeField] private GameObject potSlotPrefab;
-        [SerializeField] private List<PlantSlot> plantSlots = new List<PlantSlot>();
+        private List<GridSlot> _plantSlots = new();
         private void Start()
         {
             CreateGrid();
-            Camera.main.transform.position = CenterCameraOnGrid(gridSize);
+            if (Camera.main != null) Camera.main.transform.position = CenterCameraOnGrid(gridSize);
         }
         
         private void CreateGrid()
         {
-            Vector2 gridSize = GetGridSize(GridSize.Large);
-            for (int x = 0; x < gridSize.x; x++)
+            Vector2 size = GetGridSize(GridSize.Large);
+            for (int x = 0; x < size.x; x++)
             {
-                for (int y = 0; y < gridSize.y; y++)
+                for (int y = 0; y < size.y; y++)
                 {
                     InstantiateSlot(x, y);
                     SlotVisibilityController(GridSize.Large);
@@ -29,9 +29,9 @@ namespace Map
 
         private void SlotVisibilityController(GridSize size)
         {
-            foreach (PlantSlot slot in plantSlots)
+            foreach (GridSlot slot in _plantSlots)
             {
-                Vector2 coords = slot.coords.getCoords;
+                Vector2 coords = slot.Coords.GetCoords;
                 if (coords.x > GetGridSize(size).x - 1)
                 {
                     slot.gameObject.SetActive(false);
@@ -47,8 +47,8 @@ namespace Map
 
         private Vector3 CenterCameraOnGrid(GridSize size)
         {
-            Vector2 gridSize = GetGridSize(size);
-            return new Vector3(gridSize.x / 2 - 0.5f, gridSize.y / 2 - 0.5f, -10);
+            Vector2 vector2 = GetGridSize(size);
+            return new Vector3(vector2.x / 2 - 0.5f, vector2.y / 2 - 0.5f, -10);
         }
 
         private void Upgrade()
@@ -79,9 +79,9 @@ namespace Map
             slot.transform.position = new Vector3(x, y, 0);
             slot.GetComponent<SpriteRenderer>().color = SetColor(x + y);
             slot.name = $"Tile: {x} {y}";
-            PlantSlot plantSlot = slot.AddComponent<PlantSlot>();
-            plantSlot.coords = new(x, y);
-            plantSlots.Add(plantSlot);
+            GridSlot plantSlot = slot.AddComponent<GridSlot>();
+            plantSlot.Coords = new(x, y);
+            _plantSlots.Add(plantSlot);
         }
         
         private Color SetColor(int index)
@@ -92,7 +92,7 @@ namespace Map
         private void OnValidate()
         {
             SlotVisibilityController(gridSize);
-            Camera.main.transform.position = CenterCameraOnGrid(gridSize);
+            if (Camera.main != null) Camera.main.transform.position = CenterCameraOnGrid(gridSize);
         }
     }
     
