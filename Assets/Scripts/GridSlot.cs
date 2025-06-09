@@ -2,32 +2,18 @@ using UnityEngine;
 
 public class GridSlot : MonoBehaviour
 {
-    public CoordinatesData Coords;
+    private Vector2Int _coords;
 
-    public GridSlot(CoordinatesData coords)
+    public void Initialize(int posX, int posY)
     {
-        Coords  = coords;
-    }
-    private void Start()
-    {
-        Debug.Log(Coords.GetCoords);
-    }
-}
+        _coords.x = posX;
+        _coords.y = posY;
 
-public readonly struct CoordinatesData
-{
-    readonly int _posX;
-    readonly int _posY;
-
-    public CoordinatesData(int posX, int posY)
-    {
-        this._posX = posX;
-        this._posY = posY;
+        gameObject.name = $"Tile {_coords.x} : {_coords.y}";
     }
 
-    // Skr�cona wersja public int x {get { return _posX; }}
-    public readonly int X => _posX;
-    public readonly int Y => _posY;
-
-    public Vector2 GetCoords => new(_posX, _posY);
+    public Vector2Int GetCoords()
+    {
+        return _coords;
+    }
 }

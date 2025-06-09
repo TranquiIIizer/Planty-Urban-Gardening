@@ -5,6 +5,7 @@ namespace Managers
 {
     public class CurrencyManager : Singleton<CurrencyManager>
     {
+        private int _startingMoneyCount;
         private int _currentMoney;
         [SerializeField] private TextMeshProUGUI moneyCounter;
 
@@ -16,6 +17,7 @@ namespace Managers
         //  Zwięźlejsza wersja: public int GetCurrentMoney(){ return _currentMoney }
         public int GetCurrentMoney() => _currentMoney;
 
+        public int GetStartingMoneyCount() => _startingMoneyCount;
         public void AddMoney(int amount) => _currentMoney += amount;
         //  Przykład przeciążania metod
         public void AddMoney(int amount, int times) => _currentMoney += amount * times;

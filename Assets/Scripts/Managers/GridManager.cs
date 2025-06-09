@@ -31,7 +31,7 @@ namespace Managers
         {
             foreach (GridSlot slot in _plantSlots)
             {
-                Vector2 coords = slot.Coords.GetCoords;
+                Vector2Int coords = slot.GetCoords();
                 if (coords.x > GetGridSize(size).x - 1)
                 {
                     slot.gameObject.SetActive(false);
@@ -76,12 +76,13 @@ namespace Managers
         private void InstantiateSlot(int x, int y)
         {
             GameObject slot = Instantiate(potSlotPrefab, transform, true);
+            
             slot.transform.position = new Vector3(x, y, 0);
-            slot.GetComponent<SpriteRenderer>().color = SetColor(x + y);
-            slot.name = $"Tile: {x} {y}";
-            GridSlot plantSlot = slot.AddComponent<GridSlot>();
-            plantSlot.Coords = new(x, y);
-            _plantSlots.Add(plantSlot);
+            slot.GetComponentInChildren<SpriteRenderer>().color = SetColor(x + y);
+            
+            GridSlot slotData = slot.GetComponent<GridSlot>();
+            slotData.Initialize(x, y);
+            _plantSlots.Add(slotData);
         }
         
         private Color SetColor(int index)

@@ -1,0 +1,34 @@
+{
+    "name": "PlayerInputActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "8a6fafd1-6972-4851-828b-b4413fd2c222",
+            "actions": [
+                {
+                    "name": "UIClick",
+                    "type": "Button",
+                    "id": "3110bd38-dc4c-4934-ad15-57a3b1e18058",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bfe45f2e-4e23-48d3-b7ae-e0dde04ee285",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UIClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
