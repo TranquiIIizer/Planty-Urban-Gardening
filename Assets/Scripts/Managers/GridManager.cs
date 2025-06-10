@@ -22,7 +22,8 @@ namespace Managers
                 for (int y = 0; y < size.y; y++)
                 {
                     InstantiateSlot(x, y);
-                    SlotVisibilityController(GridSize.Large);
+                    SlotVisibilityController(GridSize.Small);
+                    CenterCameraOnGrid(GridSize.Small);
                 }
             }
         }
@@ -78,16 +79,10 @@ namespace Managers
             GameObject slot = Instantiate(potSlotPrefab, transform, true);
             
             slot.transform.position = new Vector3(x, y, 0);
-            slot.GetComponentInChildren<SpriteRenderer>().color = SetColor(x + y);
             
             GridSlot slotData = slot.GetComponent<GridSlot>();
             slotData.Initialize(x, y);
             _plantSlots.Add(slotData);
-        }
-        
-        private Color SetColor(int index)
-        {
-            return index % 2 == 0 ? Color.blue : Color.red;
         }
 
         private void OnValidate()
