@@ -8,6 +8,7 @@ namespace Managers
         [SerializeField] private GridSize gridSize;
         [SerializeField] private GameObject potSlotPrefab;
         private List<GridSlot> _plantSlots = new();
+        
         private void Start()
         {
             CreateGrid();
@@ -49,7 +50,24 @@ namespace Managers
         private Vector3 CenterCameraOnGrid(GridSize size)
         {
             Vector2 vector2 = GetGridSize(size);
+            CameraProjectionSizeSetter();
             return new Vector3(vector2.x / 2 - 0.5f, vector2.y / 2 - 0.5f, -10);
+
+            void CameraProjectionSizeSetter()
+            {
+                switch (size)
+                {
+                    case GridSize.Small:
+                        Camera.main.orthographicSize = 2.5f;
+                        break;
+                    case GridSize.Medium:
+                        Camera.main.orthographicSize = 3.0f;
+                        break;
+                    case GridSize.Large:
+                        Camera.main.orthographicSize = 3.5f;
+                        break;
+                }
+            }
         }
 
         private void Upgrade()

@@ -8,22 +8,17 @@ public class CurrencyCounter : MonoBehaviour
 {
     private int _currentMoney;
     private TextMeshProUGUI _currentMoneyText;
-    private PlayerInputActions _playerInputActions;
 
     private void Awake()
     {
-        _playerInputActions = new PlayerInputActions();
-        _playerInputActions.UI.UIClick.Enable();
-        _playerInputActions.UI.UIClick.performed += AddMoney;
-
+        CurrencyManager.OnMoneyChanged += AddMoney;
         _currentMoneyText = GetComponent<TextMeshProUGUI>();
     }
 
-    private void AddMoney(InputAction.CallbackContext ctx)
+    private void AddMoney(int  amount)
     {
-        Debug.Log("AddMoney");
         StopAllCoroutines();
-        StartCoroutine(CounterValueChange(100));
+        StartCoroutine(CounterValueChange(amount));
     }
 
     IEnumerator CounterValueChange(int incrementAmount)

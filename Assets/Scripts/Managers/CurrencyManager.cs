@@ -1,17 +1,19 @@
+using System;
 using UnityEngine;
-using TMPro;
 
 namespace Managers
 {
     public class CurrencyManager : Singleton<CurrencyManager>
     {
-        private int _startingMoneyCount;
+        [SerializeField] private int _startingMoneyCount;
         private int _currentMoney;
-        [SerializeField] private TextMeshProUGUI moneyCounter;
+        
+        public static Action<int> OnMoneyChanged;
 
         private void Start()
         {
-
+            OnMoneyChanged?.Invoke(_startingMoneyCount);
+            _currentMoney = _startingMoneyCount;
         }
         
         //  Zwięźlejsza wersja: public int GetCurrentMoney(){ return _currentMoney }
