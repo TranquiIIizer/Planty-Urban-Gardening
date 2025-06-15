@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b5e4b4b29fe1bc4381dd02adfcc6a0b, type: 3}
-  m_Name: Tomato
+  m_Name: Basil
   m_EditorClassIdentifier: 
-  plantName: Tomato
-  lightningRequirements: 2
-  preferedHumidity: 1
-  seedPrice: 5
-  singleFruitPrice: 2
-  daysToFullyGrown: 80
+  plantName: Basil
+  lightningRequirements: 1
+  preferedHumidity: 0
+  seedPrice: 3
+  singleFruitPrice: 1
+  daysToFullyGrown: 28
   fruitsPerHarvestRange:
-    min: 2
-    max: 5
+    min: 6
+    max: 10
   growingProcessSprites:
   - {fileID: 0}
   - {fileID: 0}

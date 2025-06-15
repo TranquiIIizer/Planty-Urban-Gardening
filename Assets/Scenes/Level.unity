@@ -2646,7 +2646,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 277565040}
-        m_TargetAssemblyTypeName: ShopPanelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ShopPanelAnimationController, Assembly-CSharp
         m_MethodName: OpenShopPanel
         m_Mode: 1
         m_Arguments:

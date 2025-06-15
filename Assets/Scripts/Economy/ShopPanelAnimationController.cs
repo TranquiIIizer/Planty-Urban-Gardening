@@ -8,6 +8,7 @@ public class ShopPanelAnimationController : MonoBehaviour, IPointerExitHandler, 
     private Button _shopOpenButton;
     private Animator _shopPanelAnimator;
     private bool _pointerOn;
+    
 
     private void Start()
     {
@@ -19,24 +20,16 @@ public class ShopPanelAnimationController : MonoBehaviour, IPointerExitHandler, 
     public void OpenShopPanel()
     {
         _shopPanelAnimator.SetBool("IsOpened", true);
-        _shopOpenButton.gameObject.SetActive(false);
-    }
-
-    public void CloseCoroutineStart()
-    {
-        StartCoroutine(CanClosePanel());
+        //_shopOpenButton.gameObject.SetActive(false);
     }
 
     private IEnumerator CanClosePanel()
     {
-        while (true)
+        bool running = true;
+        yield return new WaitForSeconds(0.5f);
+        if (!_pointerOn)
         {
-            yield return new WaitForSeconds(0.5f);
-            if (!_pointerOn)
-            {
-                _shopPanelAnimator.SetBool("IsOpened", false);
-                break;
-            }
+            _shopPanelAnimator.SetBool("IsOpened", false);
         }
     }
 
@@ -45,6 +38,7 @@ public class ShopPanelAnimationController : MonoBehaviour, IPointerExitHandler, 
     public void OnPointerExit(PointerEventData eventData)
     {
         _pointerOn = false;
+        StartCoroutine(CanClosePanel());
     }
 
     public void OnPointerEnter(PointerEventData eventData)
