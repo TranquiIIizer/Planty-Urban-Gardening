@@ -21,10 +21,11 @@ MonoBehaviour:
   fruitsPerHarvestRange:
     min: 6
     max: 10
-  growingProcessSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  iconSprite: {fileID: 0}
+  growingProcessSprite:
+  - {fileID: -6051380893510648611, guid: 6ceac3bc457359947a26c8a64e367306, type: 3}
+  - {fileID: 8692324971237012354, guid: 77b06f5dc32a8e240b01f59b676267f6, type: 3}
+  - {fileID: 8587054335573464275, guid: 8987b6363ad4f0e41a92ddf32caa7cda, type: 3}
+  - {fileID: 4665615113597550906, guid: 448a25ce5575b5e479df6740e7c9cfed, type: 3}
+  regrowingProcessSprite: {fileID: 422082948889030589, guid: 06efe9fdd1f92724992cfb2a4104109d, type: 3}
+  iconSprite: {fileID: 1779083045614959151, guid: 9ef8d3e6959c0744db56aaf20b351895, type: 3}
+  seedsSprite: {fileID: -5876761702789239426, guid: e3a673de2b19e5a4498bd88d34c1efbc, type: 3}

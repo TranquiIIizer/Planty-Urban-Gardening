@@ -13,8 +13,10 @@ namespace Plants
         [SerializeField] private int singleFruitPrice;
         [SerializeField] private int daysToFullyGrown;
         [SerializeField] private FruitsPerHarvestRange fruitsPerHarvestRange;
-        [SerializeField] private Sprite[] growingProcessSprites = new Sprite[5];
+        [SerializeField] private Sprite[] growingProcessSprite;
+        [SerializeField] private Sprite regrowingProcessSprite;
         [SerializeField] private Sprite iconSprite;
+        [SerializeField] private Sprite seedsSprite;
         
         public LightningRequirements GetLightningRequirements() => lightningRequirements;
         public Humidity GetPreferedHumidity() => preferedHumidity;
