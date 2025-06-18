@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   plantName: Tomato
-  lightningRequirements: 2
-  preferedHumidity: 1
+  seedsName: Tomato Seeds
+  growingSeasons: 0000000001000000
   seedPrice: 5
   singleFruitPrice: 2
-  daysToFullyGrown: 80
+  daysToFullyGrown: 28
+  isRegrowing: 0
   fruitsPerHarvestRange:
     min: 2
     max: 5
@@ -30,3 +31,9 @@ MonoBehaviour:
   regrowingProcessSprite: {fileID: -1559752886214855811, guid: 0fa2300251fc6b4428730967ae7a99ca, type: 3}
   iconSprite: {fileID: -8113185096396602001, guid: 3653f8ed13626284fb624214850b5934, type: 3}
   seedsSprite: {fileID: -5257041915453201655, guid: c9a39ac1168147b40ba78b529956aba4, type: 3}
+  buffSprites:
+  - {fileID: 1428892310142603471, guid: 4ac71b8db46b2b549a5d4107cb1bbc50, type: 3}
+  - {fileID: 3257580710464626593, guid: 92cac8c3be492fe4d8da6ea60a4fbd4d, type: 3}
+  debuffSprites:
+  - {fileID: -3190335049457495340, guid: 054f5dc91c62953468f2d4ee7a973f32, type: 3}
+  - {fileID: -6550695035297350611, guid: 9fada88481c55564e89cfc60d87f1788, type: 3}

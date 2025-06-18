@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc99cc41c3d8dc409ba689cb6de81d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClassName: MailboxUIController
+  buttonClassName: MailboxTabController
 --- !u!1 &5086766861852873396
 GameObject:
   m_ObjectHideFlags: 0

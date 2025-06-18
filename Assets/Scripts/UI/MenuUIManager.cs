@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class MenuUIManager : MonoBehaviour
+    public class MenuUIManager : Singleton<MenuUIManager>
     {
         [SerializeField] private GameObject menuContainer;
         
@@ -41,7 +41,6 @@ namespace UI
                 if (menuTab is MonoBehaviour monoBehaviour)
                     _menuTabTypes.Add(monoBehaviour);
             }
-            Debug.Log(_menuTabTypes.Count);
         }
         private void ShowMenuTab(Type type)
         {

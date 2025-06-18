@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Basil
   m_EditorClassIdentifier: 
   plantName: Basil
-  lightningRequirements: 1
-  preferedHumidity: 0
+  seedsName: Basil Seeds
+  growingSeasons: 000000000100000002000000
   seedPrice: 3
   singleFruitPrice: 1
-  daysToFullyGrown: 28
+  daysToFullyGrown: 16
+  isRegrowing: 0
   fruitsPerHarvestRange:
     min: 6
     max: 10
@@ -29,3 +30,11 @@ MonoBehaviour:
   regrowingProcessSprite: {fileID: 422082948889030589, guid: 06efe9fdd1f92724992cfb2a4104109d, type: 3}
   iconSprite: {fileID: 1779083045614959151, guid: 9ef8d3e6959c0744db56aaf20b351895, type: 3}
   seedsSprite: {fileID: -5876761702789239426, guid: e3a673de2b19e5a4498bd88d34c1efbc, type: 3}
+  buffSprites:
+  - {fileID: -2047966319, guid: 519a76fb3e0e14344af4f9e5e0d320ad, type: 3}
+  - {fileID: -7090092752128378902, guid: d77e84b6440d95848b3d9450446d9483, type: 3}
+  - {fileID: 751143646, guid: 519a76fb3e0e14344af4f9e5e0d320ad, type: 3}
+  debuffSprites:
+  - {fileID: 1015466035, guid: 519a76fb3e0e14344af4f9e5e0d320ad, type: 3}
+  - {fileID: 1104681851, guid: 519a76fb3e0e14344af4f9e5e0d320ad, type: 3}
+  - {fileID: 486354235, guid: 519a76fb3e0e14344af4f9e5e0d320ad, type: 3}
