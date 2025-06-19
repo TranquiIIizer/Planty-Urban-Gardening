@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Managers;
 using TMPro;
@@ -14,6 +15,8 @@ public class CurrencyCounter : MonoBehaviour
         CurrencyManager.OnMoneyChanged += AddMoney;
         _currentMoneyText = GetComponent<TextMeshProUGUI>();
     }
+
+    private void OnDestroy() => CurrencyManager.OnMoneyChanged -= AddMoney;
 
     private void AddMoney(int  amount)
     {

@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+namespace UI
 {
-    public void OnDrop(PointerEventData eventData)
+    public class InventorySlot : MonoBehaviour, IDropHandler
     {
-        if (transform.childCount == 0)
+        public void OnDrop(PointerEventData eventData)
         {
-            GameObject dropped = eventData.pointerDrag;
-            ItemDrag draggableItem = dropped.GetComponent<ItemDrag>();
-            draggableItem.parentAfterDrag = transform;
+            if (transform.childCount == 0)
+            {
+                GameObject dropped = eventData.pointerDrag;
+                ItemDrag draggableItem = dropped.GetComponent<ItemDrag>();
+                draggableItem.parentAfterDrag = transform;
+            }
         }
     }
 }

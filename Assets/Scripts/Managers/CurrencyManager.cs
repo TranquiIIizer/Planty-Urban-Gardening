@@ -7,13 +7,12 @@ namespace Managers
     public class CurrencyManager : Singleton<CurrencyManager>
     {
         [SerializeField] private int _startingMoneyCount;
-        private int _currentMoney;
+        [SerializeField] private int _currentMoney;
         
         public static Action<int> OnMoneyChanged;
 
         private void Start()
         {
-            OnMoneyChanged?.Invoke(_startingMoneyCount);
             _currentMoney = _startingMoneyCount;
         }
         
@@ -21,10 +20,20 @@ namespace Managers
         public int GetCurrentMoney() => _currentMoney;
 
         public int GetStartingMoneyCount() => _startingMoneyCount;
-        public void AddMoney(int amount) => _currentMoney += amount;
+        public void AddMoney(int amount)
+        { 
+            _currentMoney += amount;
+            OnMoneyChanged?.Invoke(_currentMoney);
+        }
+
+        public void RemoveMoney(int amount)
+        {
+            _currentMoney -= amount;
+            OnMoneyChanged?.Invoke(_currentMoney);
+        } 
         //  Przykład przeciążania metod
         public void AddMoney(int amount, int times) => _currentMoney += amount * times;
         
-        public void RemoveMoney(int amount, int times) => _currentMoney -= amount * times;
+        public void SubtractMoney(int amount, int times) => _currentMoney -= amount * times;
     }
 }

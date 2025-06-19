@@ -1,28 +1,30 @@
-using System;
 using UnityEngine;
 
-public class QuickAccessInventory : MonoBehaviour
+namespace UI
 {
-    private Transform _initialPositionParent;
-
-    private void Awake()
+    public class QuickAccessInventory : MonoBehaviour
     {
-        InventoryTabController.OnInventoryTabOpen += SetInventoryPosition;
-        InventoryTabController.OnInventoryTabClose += GoBackToInitialPosition;
-        _initialPositionParent = transform.parent;
-    }
+        private Transform _initialPositionParent;
 
-    public void SetInventoryPosition()
-    {
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-    } 
+        private void Awake()
+        {
+            InventoryTabController.OnInventoryTabOpen += SetInventoryPosition;
+            InventoryTabController.OnInventoryTabClose += GoBackToInitialPosition;
+            _initialPositionParent = transform.parent;
+        }
+
+        public void SetInventoryPosition()
+        {
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+        } 
         
-    public void GoBackToInitialPosition() => transform.SetParent(_initialPositionParent);
+        public void GoBackToInitialPosition() => transform.SetParent(_initialPositionParent);
 
-    private void OnDestroy()
-    {
-        InventoryTabController.OnInventoryTabOpen -= SetInventoryPosition;
-        InventoryTabController.OnInventoryTabClose -= GoBackToInitialPosition;
+        private void OnDestroy()
+        {
+            InventoryTabController.OnInventoryTabOpen -= SetInventoryPosition;
+            InventoryTabController.OnInventoryTabClose -= GoBackToInitialPosition;
+        }
     }
 }

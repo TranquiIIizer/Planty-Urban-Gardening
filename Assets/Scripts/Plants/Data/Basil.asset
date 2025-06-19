@@ -18,7 +18,7 @@ MonoBehaviour:
   seedPrice: 3
   singleFruitPrice: 1
   daysToFullyGrown: 16
-  isRegrowing: 0
+  isRegrowing: 1
   fruitsPerHarvestRange:
     min: 6
     max: 10
