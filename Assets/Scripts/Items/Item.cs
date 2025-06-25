@@ -5,17 +5,14 @@ namespace Items
 {
     public class Item : MonoBehaviour
     {
-        public PlantScriptableObject PlantDetails { get; private set; }
-        public ItemType ItemType {get; private set;}
+        [SerializeField] private PlantScriptableObject PlantDetails;
+        [SerializeField] private ItemType ItemType;
         
         public void SetPlantDetails(PlantScriptableObject plantDetails) =>  PlantDetails = plantDetails;
         public void SetItemType(ItemType itemType) =>  ItemType = itemType;
-    }
-
-    public enum ItemType
-    {
-        Fruit,
-        Tool,
-        Seed
+        
+        
+        public ItemType GetItemType() => ItemType;
+        public PlantScriptableObject GetPlantDetails() => PlantDetails;
     }
 }

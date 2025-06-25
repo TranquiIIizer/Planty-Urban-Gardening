@@ -17,14 +17,15 @@ namespace Managers
         private List<InventorySlot> inventorySlots = new();
         private List<InventorySlot> quickAccessSlots = new();
 
-        private void Awake() => ShopManager.OnItemBuy += AddItemOnBuyFromShop;
-        private void OnDestroy() => ShopManager.OnItemBuy -= AddItemOnBuyFromShop;
-
-        private void Start()
+        private void Awake()
         {
+            ShopManager.OnItemBuy += AddItemOnBuyFromShop;
             quickAccessSlots.AddRange(quickAccessInventory.GetComponentsInChildren<InventorySlot>());
             inventorySlots.AddRange(GetComponentsInChildren<InventorySlot>());
-        }
+        } 
+            
+        private void OnDestroy() => ShopManager.OnItemBuy -= AddItemOnBuyFromShop;
+        
 
         private void AddItemOnBuyFromShop(PlantScriptableObject plant)
         {
@@ -41,11 +42,9 @@ namespace Managers
         {
             foreach (var slot in quickAccessSlots)
             {
-                Debug.Log(!slot.GetComponentInChildren<Item>());
                 if (!slot.GetComponentInChildren<Item>())
                 {
                     SpawnItem(plant, slot);
-                    Debug.Log("item spawned quick access slot");
                     return true;
                 }
             }
@@ -56,7 +55,6 @@ namespace Managers
         {
             foreach (var slot in inventorySlots)
             {
-                Debug.Log(!slot.GetComponentInChildren<Item>());
                 if (!slot.GetComponentInChildren<Item>())
                 {
                     SpawnItem(plant, slot);
@@ -69,7 +67,6 @@ namespace Managers
 
         private void InstantiateNewSlotAndAddItem(PlantScriptableObject plant)
         {
-            Debug.Log("Instantiating new slot and add item");
             var newSlot = Instantiate(inventorySlotPrefab, inventorySlotParent.transform);
             InventorySlot inventorySlot = newSlot.GetComponent<InventorySlot>();
             SpawnItem(plant, inventorySlot);

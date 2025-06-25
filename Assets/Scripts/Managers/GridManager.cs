@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Grid;
 
 namespace Managers
 {
@@ -7,7 +8,7 @@ namespace Managers
     {
         [SerializeField] private GridSize gridSize;
         [SerializeField] private GameObject potSlotPrefab;
-        private List<GridSlot> _plantSlots = new();
+        private List<GridSlotHandler> _plantSlots = new();
         
         private void Start()
         {
@@ -31,7 +32,7 @@ namespace Managers
 
         private void SlotVisibilityController(GridSize size)
         {
-            foreach (GridSlot slot in _plantSlots)
+            foreach (GridSlotHandler slot in _plantSlots)
             {
                 Vector2Int coords = slot.GetCoords();
                 if (coords.x > GetGridSize(size).x - 1)
@@ -98,7 +99,7 @@ namespace Managers
             
             slot.transform.position = new Vector3(x, y, 0);
             
-            GridSlot slotData = slot.GetComponent<GridSlot>();
+            GridSlotHandler slotData = slot.GetComponent<GridSlotHandler>();
             slotData.Initialize(x, y);
             _plantSlots.Add(slotData);
         }

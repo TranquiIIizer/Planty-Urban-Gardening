@@ -26,6 +26,7 @@ public class ToolbarButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        GameTimeManager.Instance.StopTime();
         OnClick?.Invoke(_buttonType);
     }
 }

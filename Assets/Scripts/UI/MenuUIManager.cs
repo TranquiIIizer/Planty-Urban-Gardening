@@ -31,6 +31,7 @@ namespace UI
 
         public void OnCloseButtonClicked()
         {
+            GameTimeManager.Instance.StartTime();
             menuContainer.SetActive(false);
         }
         

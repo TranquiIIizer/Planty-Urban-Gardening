@@ -1,10 +1,11 @@
 using System.Collections;
+using Items;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Grid
 {
-    public class SlotHighlighter : MonoBehaviour, IDropHandler
+    public class SlotHighlighter : MonoBehaviour
     {
         [SerializeField] private GameObject slotHighlighter;
         [SerializeField] private Material freeSlotIndicatorMaterial;
@@ -28,12 +29,6 @@ namespace Grid
         {
             _renderer.material = _defaultMaterial;
             yield return null;
-        }
-
-
-        public void OnDrop(PointerEventData eventData)
-        {
-            Debug.Log("Item Dropped");
         }
     }
 }

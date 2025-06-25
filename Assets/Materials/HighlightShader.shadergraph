@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "42de8666892240db9943a755814ef988"
+        },
+        {
+            "m_Id": "6fa9282f46af414b884f7622b23ec82e"
         }
     ],
     "m_Keywords": [],
@@ -47,11 +50,28 @@
         },
         {
             "m_Id": "7a648bc05d0d44888775905e311c928a"
+        },
+        {
+            "m_Id": "03ed96c3b0d54c368c7dc237f64f0c6b"
         }
     ],
     "m_GroupDatas": [],
     "m_StickyNoteDatas": [],
     "m_Edges": [
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "03ed96c3b0d54c368c7dc237f64f0c6b"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e8b639321d784de2ae92dc0f25e77824"
+                },
+                "m_SlotId": 1
+            }
+        },
         {
             "m_OutputSlot": {
                 "m_Node": {
@@ -173,6 +193,42 @@
             "m_Id": "a0fc27f75bea4a3899d66ffd0d9582fc"
         }
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "03ed96c3b0d54c368c7dc237f64f0c6b",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1638.9998779296875,
+            "y": 107.99998474121094,
+            "width": 133.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "3ecc496b53ef4040a5b9f712a7ac7a34"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "6fa9282f46af414b884f7622b23ec82e"
+    }
 }
 
 {
@@ -366,6 +422,19 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "3ecc496b53ef4040a5b9f712a7ac7a34",
+    "m_Id": 0,
+    "m_DisplayName": "_MainTex",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "40955cf7359643908c33c2dcd962f9a6",
     "m_Group": {
@@ -525,6 +594,36 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.BaseColor"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "6fa9282f46af414b884f7622b23ec82e",
+    "m_Guid": {
+        "m_GuidSerialized": "f786f995-1480-47dc-9702-ce7e32f9d674"
+    },
+    "m_Name": "_MainTex",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_MainTex",
+    "m_DefaultReferenceName": "_MainTex",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"602cb87b6a29443b8636370ea0751574\",\"type\":3}}",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -830,6 +929,9 @@
         },
         {
             "m_Id": "42de8666892240db9943a755814ef988"
+        },
+        {
+            "m_Id": "6fa9282f46af414b884f7622b23ec82e"
         }
     ]
 }
@@ -870,9 +972,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.24173642694950105,
-        "g": 0.7735849022865295,
-        "b": 0.0,
+        "r": 0.2009703367948532,
+        "g": 0.6320754289627075,
+        "b": 0.002981494879350066,
         "a": 0.0
     },
     "isMainColor": false,

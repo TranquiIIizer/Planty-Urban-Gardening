@@ -15,7 +15,7 @@ namespace Plants
         [SerializeField] private int daysToFullyGrown;
         [SerializeField] private bool isRegrowing;
         [SerializeField] private FruitsPerHarvestRange fruitsPerHarvestRange;
-        [SerializeField] private Sprite[] growingProcessSprite;
+        [SerializeField] private Sprite[] growingProcessSprites;
         [SerializeField] private Sprite regrowingProcessSprite;
         [SerializeField] private Sprite iconSprite;
         [SerializeField] private Sprite seedsSprite;
@@ -29,7 +29,9 @@ namespace Plants
         public GrowingSeason[] GetGrowingSeasons() => growingSeasons;
         public int GetSingleFruitPrice() => singleFruitPrice;
         public string GetDaysToFullyGrown() => daysToFullyGrown + " d";
+        public int GetDaysToFullyGrownInt() => daysToFullyGrown;
         public Sprite GetSeedSprite() => seedsSprite;
+        public Sprite[] GetPlantSprites() => growingProcessSprites;
         public string GetSeasonText()
         {
             string seasonText = null;

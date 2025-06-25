@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Plants;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SOContainer", menuName = "Planty/SOContainer")]
+[CreateAssetMenu(fileName = "PlantFullListContainerSO", menuName = "Planty/PlantFullListContainerSO")]
 public class PlantFullListContainerSO : ScriptableObject
 {
-    [SerializeField] private List<PlantScriptableObject> plants;
-    
-    public List<PlantScriptableObject> Plants => plants;
+    public List<PlantScriptableObject> plants;
 }
