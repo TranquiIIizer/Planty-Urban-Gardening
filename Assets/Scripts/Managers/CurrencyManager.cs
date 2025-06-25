@@ -1,27 +1,39 @@
+using System;
+using Plants;
 using UnityEngine;
-using TMPro;
 
 namespace Managers
 {
     public class CurrencyManager : Singleton<CurrencyManager>
     {
-        private int _startingMoneyCount;
-        private int _currentMoney;
-        [SerializeField] private TextMeshProUGUI moneyCounter;
+        [SerializeField] private int _startingMoneyCount;
+        [SerializeField] private int _currentMoney;
+        
+        public static Action<int> OnMoneyChanged;
 
         private void Start()
         {
-
+            _currentMoney = _startingMoneyCount;
         }
         
         //  Zwięźlejsza wersja: public int GetCurrentMoney(){ return _currentMoney }
         public int GetCurrentMoney() => _currentMoney;
 
         public int GetStartingMoneyCount() => _startingMoneyCount;
-        public void AddMoney(int amount) => _currentMoney += amount;
+        public void AddMoney(int amount)
+        { 
+            _currentMoney += amount;
+            OnMoneyChanged?.Invoke(_currentMoney);
+        }
+
+        public void RemoveMoney(int amount)
+        {
+            _currentMoney -= amount;
+            OnMoneyChanged?.Invoke(_currentMoney);
+        } 
         //  Przykład przeciążania metod
         public void AddMoney(int amount, int times) => _currentMoney += amount * times;
         
-        public void RemoveMoney(int amount, int times) => _currentMoney -= amount * times;
+        public void SubtractMoney(int amount, int times) => _currentMoney -= amount * times;
     }
 }

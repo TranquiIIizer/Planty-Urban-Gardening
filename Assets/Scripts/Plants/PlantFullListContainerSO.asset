@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bc08801d1b6f849b4ad20b3f785c37, type: 3}
+  m_Name: PlantFullListContainerSO
+  m_EditorClassIdentifier: 
+  plants:
+  - {fileID: 11400000, guid: b26b9cd41f2b3d34c8e86f2ab81405d7, type: 2}
+  - {fileID: 11400000, guid: 6b5c63c2c86d433419b6c8fa016f7b55, type: 2}

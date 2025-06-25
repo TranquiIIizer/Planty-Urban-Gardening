@@ -33,7 +33,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
             _instance = gameObject.AddComponent<T>();
                 
             //Maybe not needed
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
             
     }
