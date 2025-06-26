@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Grid
 {
-    public class SlotHighlighter : MonoBehaviour
+    public class SlotHighlighter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private GameObject slotHighlighter;
         [SerializeField] private Material freeSlotIndicatorMaterial;
@@ -18,16 +18,22 @@ namespace Grid
             _renderer = slotHighlighter.GetComponent<Renderer>();
             _defaultMaterial = _renderer.material;
         }
-
-        private void OnMouseEnter()
+        
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            if (GetComponentInParent<GridSlotHandler>().GetComponentInChildren<Plant>())
-                _renderer.material = occupiedSlotIndicatorMaterial;
-            else 
-                _renderer.material = freeSlotIndicatorMaterial;
+            ItemType draggedItemType = eventData.pointerDrag.GetComponent<Item>().GetItemType();
+            bool isPlantOnSlot = GetComponentInParent<GridSlotHandler>().GetComponentInChildren<Plant>();
+
+            if (draggedItemType == ItemType.Seed)
+            {
+                if (isPlantOnSlot)
+                    _renderer.material = occupiedSlotIndicatorMaterial;
+                else
+                    _renderer.material = freeSlotIndicatorMaterial;
+            }
         }
 
-        private void OnMouseExit()
+        public void OnPointerExit(PointerEventData eventData)
         {
             _renderer.material = _defaultMaterial;
         }

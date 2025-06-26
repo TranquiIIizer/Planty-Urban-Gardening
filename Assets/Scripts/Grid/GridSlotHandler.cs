@@ -31,6 +31,7 @@ namespace Grid
                 
                 bool isSeed = eventData.pointerDrag.GetComponent<Item>().GetItemType() == ItemType.Seed;
                 bool isWateringCan = eventData.pointerDrag.GetComponent<WateringCan>();
+                bool isSpade = eventData.pointerDrag.GetComponent<Spade>();
                 if (isSeed)
                 {
                     _plant = Instantiate(plantPrefab, transform, false).GetComponent<Plant>();
@@ -42,8 +43,13 @@ namespace Grid
 
                 if (isWateringCan)
                 {
-                    Debug.Log(_plant.CurrentState + "XD");
                     WateredEvent?.Invoke();
+                }
+
+                if (isSpade)
+                {
+                    Debug.Log("Szpada");
+                    Destroy(_plant.gameObject);
                 }
             }
         }

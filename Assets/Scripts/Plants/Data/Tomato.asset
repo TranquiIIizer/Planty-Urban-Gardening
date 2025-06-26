@@ -28,7 +28,6 @@ MonoBehaviour:
   - {fileID: 5261498360715089336, guid: eefeb85f515e29a44a3c51badd036ce9, type: 3}
   - {fileID: -3067217230717666817, guid: f0adf4f15c03c0845b2e7fd600625d2b, type: 3}
   - {fileID: 7553962734480612140, guid: 59ab5b30b22230f4488d17c910a6e330, type: 3}
-  - {fileID: -1559752886214855811, guid: 0fa2300251fc6b4428730967ae7a99ca, type: 3}
   regrowingProcessSprite: {fileID: -1559752886214855811, guid: 0fa2300251fc6b4428730967ae7a99ca, type: 3}
   iconSprite: {fileID: -8113185096396602001, guid: 3653f8ed13626284fb624214850b5934, type: 3}
   seedsSprite: {fileID: -5257041915453201655, guid: c9a39ac1168147b40ba78b529956aba4, type: 3}

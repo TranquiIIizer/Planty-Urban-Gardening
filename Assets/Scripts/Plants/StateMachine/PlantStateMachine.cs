@@ -46,6 +46,7 @@ public class PlantStateMachine : MonoBehaviour
             return;
         
         CurrentState = stack.Peek();
+        Debug.Log($"Entered state: {CurrentState}");
         CurrentState.Enter();
     }
 

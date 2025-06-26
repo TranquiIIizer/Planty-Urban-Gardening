@@ -7,12 +7,12 @@ public class PlantDeathState : PlantState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered PlantDeathState");
     }
 
     public override void Update()
     {
         base.Update();
+        Debug.Log("Plant is dead");
     }
 
     public override void Exit()
