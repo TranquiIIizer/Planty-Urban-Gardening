@@ -1,10 +1,13 @@
 using Grid;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantGrowingState : PlantState
 {
     private GridPlantSpriteUpdater plantSpriteUpdater;
     private int daysWithoutWatering;
+    private int daysToFullyGrown;
+    private int growDaysCount = 0;
     public PlantGrowingState(PlantStateMachine stateMachine) : base(stateMachine){}
     
     public override void Enter()
@@ -12,6 +15,8 @@ public class PlantGrowingState : PlantState
         base.Enter();
 
         _plantStateMachine.GetComponentInParent<GridSlotHandler>().WateredEvent += ResetDrying;
+        daysToFullyGrown = _plantStateMachine.GetComponent<Plant>().plantData.GetDaysToFullyGrownInt();
+        Debug.Log(daysToFullyGrown);
         
         GameTimeManager.TimeTickEvent += Update;
         daysWithoutWatering = 0;
@@ -21,7 +26,15 @@ public class PlantGrowingState : PlantState
     public override void Update()
     {
         base.Update();
-        
+
+        growDaysCount++;
+        if (growDaysCount == daysToFullyGrown)
+        {
+            GameTimeManager.TimeTickEvent -= Update;
+            _plantStateMachine.SetState(new PlantReadyForHarvestState(_plantStateMachine));
+        }
+
+
         daysWithoutWatering++;
         plantSpriteUpdater.DaysToFullyGrownUpdate();
         
