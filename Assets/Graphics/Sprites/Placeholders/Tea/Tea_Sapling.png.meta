@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tea_Sapling_0: -5876761702789239426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
+using System;
 using Items;
-using Plants;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,14 +8,12 @@ namespace Grid
     public class GridSlotHandler : MonoBehaviour, IDropHandler
     {
         private Vector2Int _coords;
-        private bool _hasPlant;
+        private Plant _plant;
+        [SerializeField] private GameObject plantPrefab;
         [SerializeField] private SpriteRenderer plantSpriteRenderer;
 
-        private void Start()
-        {
-            _hasPlant = false;
-        }
-
+        public Action WateredEvent;
+        
         public void Initialize(int posX, int posY)
         {
             _coords.x = posX;
@@ -29,14 +27,23 @@ namespace Grid
         {
             if (eventData.pointerDrag != null)
             {
-                bool isSeed = eventData.pointerDrag.gameObject.GetComponent<Item>().GetItemType() == ItemType.Seed;
+                //Must Refactor
+                
+                bool isSeed = eventData.pointerDrag.GetComponent<Item>().GetItemType() == ItemType.Seed;
+                bool isWateringCan = eventData.pointerDrag.GetComponent<WateringCan>();
                 if (isSeed)
                 {
-                    GridPlantSpriteUpdater spriteUpdater = GetComponentInChildren<GridPlantSpriteUpdater>();
+                    _plant = Instantiate(plantPrefab, transform, false).GetComponent<Plant>();
                     Item item = eventData.pointerDrag.gameObject.GetComponent<Item>();
-                    spriteUpdater.InitializePlantSprite(item.GetPlantDetails());
+                    _plant.plantData = item.GetPlantDetails();
                     
                     Destroy(item.gameObject);
+                }
+
+                if (isWateringCan)
+                {
+                    Debug.Log(_plant.CurrentState + "XD");
+                    WateredEvent?.Invoke();
                 }
             }
         }

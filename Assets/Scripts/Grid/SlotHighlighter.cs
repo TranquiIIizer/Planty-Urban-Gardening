@@ -19,16 +19,17 @@ namespace Grid
             _defaultMaterial = _renderer.material;
         }
 
-        private IEnumerator OnMouseEnter()
+        private void OnMouseEnter()
         {
-            _renderer.material = freeSlotIndicatorMaterial;
-            yield return null;
+            if (GetComponentInParent<GridSlotHandler>().GetComponentInChildren<Plant>())
+                _renderer.material = occupiedSlotIndicatorMaterial;
+            else 
+                _renderer.material = freeSlotIndicatorMaterial;
         }
 
-        private IEnumerator OnMouseExit()
+        private void OnMouseExit()
         {
             _renderer.material = _defaultMaterial;
-            yield return null;
         }
     }
 }

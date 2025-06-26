@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shopping-cart-icon_0: -2854627180962347953
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

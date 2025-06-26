@@ -20,12 +20,11 @@ namespace Grid
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.enabled = false;
             _occupied = false;
+            InitializePlantSprite(GetComponentInParent<Plant>().plantData);
         }
 
         public void InitializePlantSprite(PlantScriptableObject  plant)
         {
-            //Reset to be sure
-            GameTimeManager.TimeTickEvent -= DaysToFullyGrownUpdate;
             
             _occupied = true;
             _phaseIndex = 0;
@@ -37,15 +36,11 @@ namespace Grid
             _spriteRenderer.enabled = true;
             
             _daysToFullyGrown = plant.GetDaysToFullyGrownInt();
-            Debug.Log(_daysToFullyGrown);
-            Debug.Log(spritesCount);
             _remainingDays = _daysToFullyGrown;
             _spriteChangePeriod = _daysToFullyGrown / spritesCount;
-            
-            GameTimeManager.TimeTickEvent += DaysToFullyGrownUpdate;
         }
 
-        private void DaysToFullyGrownUpdate()
+        public void DaysToFullyGrownUpdate()
         {
             if (_occupied)
             {
