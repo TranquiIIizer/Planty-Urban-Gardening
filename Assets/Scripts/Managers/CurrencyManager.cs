@@ -16,7 +16,6 @@ namespace Managers
             _currentMoney = _startingMoneyCount;
         }
         
-        //  Zwięźlejsza wersja: public int GetCurrentMoney(){ return _currentMoney }
         public int GetCurrentMoney() => _currentMoney;
 
         public int GetStartingMoneyCount() => _startingMoneyCount;
