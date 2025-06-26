@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tea_After_Harvest_0: 422082948889030589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
